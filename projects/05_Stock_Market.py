@@ -66,7 +66,7 @@ fig1.update_layout(annotations=annotations)
 st.plotly_chart(fig1, use_container_width=True)
 
 # MSE on train and test sets
-st.markdown(f"Train MSE: {amazon_scores[0]}, Test MSE: {amazon_scores[1]}")
+st.markdown(f"Train MSE: {amazon_scores[0]:.3f}, Test MSE: {amazon_scores[1]:.3f}")
 
 fig2 = go.Figure()
 fig2.add_trace(go.Scatter(go.Scatter(x=google_predictions['Date'], y=google_predictions['Train Prediction'],
@@ -95,7 +95,7 @@ fig2.update_layout(annotations=annotations)
 st.plotly_chart(fig2, use_container_width=True)
 
 # MSE on train and test sets
-st.markdown(f"Train MSE: {google_scores[0]}, Test MSE: {google_scores[1]}")
+st.markdown(f"Train MSE: {google_scores[0]:.3f}, Test MSE: {google_scores[1]:.3f}")
 
 fig3 = go.Figure()
 fig3.add_trace(go.Scatter(go.Scatter(x=ibm_predictions['Date'], y=ibm_predictions['Train Prediction'],
@@ -124,7 +124,7 @@ fig3.update_layout(annotations=annotations)
 st.plotly_chart(fig3, use_container_width=True)
 
 # MSE on train and test sets
-st.markdown(f"Train MSE: {ibm_scores[0]}, Test MSE: {ibm_scores[1]}")
+st.markdown(f"Train MSE: {ibm_scores[0]:.3f}, Test MSE: {ibm_scores[1]:.3f}")
 
 fig4 = go.Figure()
 fig4.add_trace(go.Scatter(go.Scatter(x=microsoft_predictions['Date'], y=microsoft_predictions['Train Prediction'],
@@ -153,4 +153,4 @@ fig4.update_layout(annotations=annotations)
 st.plotly_chart(fig4, use_container_width=True)
 
 # MSE on train and test sets
-st.markdown(f"Train MSE: {microsoft_scores[0]}, Test MSE: {microsoft_scores[1]}")
+st.markdown(f"Train MSE: {microsoft_scores[0]:.3f}, Test MSE: {microsoft_scores[1]:.3f}")
