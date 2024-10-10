@@ -29,7 +29,7 @@ with st.container():
 with st.container():
     text_column, image_column = st.columns((3,1))
     with text_column:
-        st.subheader("Weather Prediction", divider="green")
+        st.subheader("Weather Classification", divider="green")
         st.markdown("""
             - Created a Random Forest classification model to predict the weather
             - Trained on three years of data for the city of Seattle, Washington
