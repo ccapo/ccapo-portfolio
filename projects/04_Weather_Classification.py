@@ -39,9 +39,9 @@ rfc, oe, sc, images = load_model()
 # Load the Icons
 dz, rn, sn, sw, fg = load_icons()
 
-st.header('Weather Prediction', divider='green')
+st.header('Weather Classification', divider='green')
 
-st.markdown("Change the sliders below to see the prediction")
+st.markdown("Change the sliders below to see the classification")
 
 # Get input parameters
 precipitation = st.slider('Precipitation (mm)', 0.0, 100.0, 0.0, 1.0)
@@ -52,9 +52,9 @@ wind = st.slider('Wind Speed (m/s)', 0.0, 10.0, 3.0, 1.0)
 # Get weather prediction
 weather = get_prediction([precipitation, temp_min, temp_max, wind])
 if weather == None:
-    st.warning("Unknown Weather Prediction")
+    st.warning("Unknown Weather Classification")
 else:
     icon = Image.open(images[weather])
 
-st.info("Weather Prediction:")
+st.info("Weather Classification:")
 st.image(icon, caption = weather, width = 250)
