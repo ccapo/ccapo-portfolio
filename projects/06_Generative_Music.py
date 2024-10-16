@@ -122,8 +122,11 @@ model = model_load()
 st.markdown("#### What are Recurrent Neural Networks?")
 st.markdown("A recurrent neural network is a class of artificial neural networks that make use of sequential information. They are called recurrent because they perform the same function for every single element of a sequence, with the result being dependent on previous computations. Whereas outputs are independent of previous computations in traditional neural networks.")
 st.markdown("In this project we will use a Long Short-Term Memory (LSTM) network. They are a type of Recurrent Neural Network that can efficiently learn via gradient descent. Using a gating mechanism, LSTMs are able to recognise and encode long-term patterns. LSTMs are extremely useful to solve problems where the network has to remember information for a long period of time as is the case in music and text generation.")
+st.markdown("#### The Data")
 st.markdown("The data that our model will be trained on will consist of piano MIDI files of Final Fantasy soundtracks, but any set of MIDI files consisting of a single instrument would work.")
 st.markdown("The sequence of notes and chords from the MIDI files are broken down into increments of 100, which are used to predict the next note or chord.")
+st.markdown("#### The Model")
+st.markdown("The model")
 st.divider()
 
 midi_file = None
