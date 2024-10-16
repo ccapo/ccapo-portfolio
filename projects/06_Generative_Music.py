@@ -10,7 +10,7 @@ import io
 
 @st.cache_resource
 def load_notes():
-    notes_filepath = 'data/music_notes.pkl'
+    notes_filepath = 'models/music_notes.pkl'
     with open(notes_filepath, 'rb') as filepath:
         notes = pickle.load(filepath)
         pitchnames = pickle.load(filepath)
