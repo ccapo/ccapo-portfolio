@@ -41,6 +41,8 @@ st.markdown('''There are 3 types of recommendation systems:
 st.markdown("In this project, we are building a **Content-based** recommendation engine for movies titles.")
 st.markdown("To build this recommendation system, we will be using almost 5k movies and credits from the TMDB dataset available at Kaggle")
 
+st.divider()
+
 st.markdown("Enter the title of a movie to see a list of 10 recommendations (e.g. The Dark Knight Rises, The Avengers, etc)")
 title = st.text_input("Movie Title")
 if title != "":
