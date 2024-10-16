@@ -126,7 +126,7 @@ st.markdown("#### Data")
 st.markdown("The data that our model will be trained on will consist of piano MIDI files of Final Fantasy soundtracks, but any set of MIDI files consisting of a single instrument would work.")
 st.markdown("The sequence of notes and chords from the MIDI files are broken down into increments of 100, which are used to predict the next note or chord.")
 st.markdown("#### Model")
-st.markdown("For this project we will use a simple network consisting of three LSTM layers, three Dropout layers, two Dense layers and one activation layer. It may be possible to improve this model by playing around with the the structure of the network, or adding new categories (e.g. varying note duration, rest periods between notes, etc). However, to achieve satisfying results with more classes we would also have to increase the depth of the LSTM network.")
+st.markdown("For this project we will use a network consisting of three LSTM layers, three Dropout layers, two Dense layers and one activation layer. It may be possible to improve this model by playing around with the the structure of the network, or adding new categories (e.g. varying note duration, rest periods between notes, etc). However, to achieve satisfying results with more classes we would also have to increase the depth of the LSTM network.")
 st.divider()
 
 midi_file = None
