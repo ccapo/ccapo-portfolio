@@ -128,6 +128,7 @@ st.markdown("The sequence of notes and chords from the MIDI files are broken dow
 st.markdown("#### Model")
 st.markdown("For this project we will use a network consisting of three LSTM layers, three Dropout layers, two Dense layers and one activation layer.")
 st.markdown("It may be possible to improve this model by playing around with the the structure of the network, or adding new categories (e.g. varying note duration, rest periods between notes, etc). However, to achieve satisfying results with more classes we would also have to increase the depth of the LSTM network.")
+st.markdown("*This is based off the tutorial by Sigurður Skúli [How to Generate Music using a LSTM Neural Network in Keras](https://towardsdatascience.com/how-to-generate-music-using-a-lstm-neural-network-in-keras-68786834d4c5)*")
 st.divider()
 
 midi_file = None
