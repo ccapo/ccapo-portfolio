@@ -145,6 +145,7 @@ if st.button('Generate'):
 
 if generated_midi:
     midi_file = generated_midi
+    sample_midi = None
 elif sample_midi:
     midi_file = sample_midi
 
