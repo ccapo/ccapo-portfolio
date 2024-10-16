@@ -37,6 +37,9 @@ st.image(gru, caption = "Gated Recurrent Unit (GRU)")
 st.markdown("Below are the analyses of four stocks using a GRU-based model: *Amazon*, *Google*, *IBM* and *Microsoft*")
 st.markdown("The model consists of the following: A single input and output dimension (i.e. Closing Price) and two hidden layers, with 32 GRU nodes per layer. These models were trained for 105 epochs each.")
 st.image(nn, caption = "GRU-based Model")
+
+st.divider()
+
 st.markdown("Below each graph is the mean square error (MSE) for the train and test sets, where the test set consists of the last 20 days.")
 
 fig1 = go.Figure()
