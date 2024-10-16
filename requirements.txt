@@ -8,4 +8,5 @@ music21
 pretty-midi
 pyfluidsynth
 scipy
-soundfile 
+soundfile
+tensorflow
