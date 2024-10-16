@@ -18,7 +18,7 @@ def load_notes():
     return (notes, pitchnames, n_vocab)
 
 @st.cache_resource
-def load_model():
+def model_load():
     model_filepath = 'models/music_model.keras'
     model = load_model(model_filepath)
     return model
