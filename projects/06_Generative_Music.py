@@ -37,7 +37,7 @@ def prepare_sequences(notes, pitchnames, n_vocab, sequence_length=100):
 
 def generate_notes(model, network_input, pitchnames, n_vocab, nlength, istart=-1):
     # pick a random sequence from the input as a starting point for the prediction
-    if istart < 0 or istart >= len(network_input) - 1:
+    if istart < 0 or istart > len(network_input) - 1:
         start = np.random.randint(0, len(network_input) - 1)
         print(f"Starting Position = {start}")
     else:
@@ -97,8 +97,8 @@ def create_midi(prediction_output, output_filepath):
 
 def generate(model, network_input, pitchnames, n_vocab, nlength=500, istart=-1):
     output_filepath = 'output.mid'
-    if nlength <= 0:
-        print(f"Negative song length is not permitted, defaulting to 500 notes")
+    if nlength < 1:
+        print(f"Song length must be at least one note, defaulting to 250 notes")
         nlength = 500
     if nlength > 500:
         print(f"Cannot exceed 500 notes for song length")
@@ -125,9 +125,12 @@ midi_file = None
 generated_midi = None
 sample_midi = None
 
+n_notes = st.slider("How many notes do you want?", 1, 500, 250)
+start_pos = st.slider("Where do you want to start (negative = random)?", -1, len(network_input) - 1, -1)
+
 if st.button('Generate'):
     with st.spinner(f"Generating a new MIDI file"):
-        generated_midi = generate(model, network_input, pitchnames, n_vocab, 250, 16146)
+        generated_midi = generate(model, network_input, pitchnames, n_vocab, n_notes, start_pos)
 
 sample_midi = st.selectbox(
     'Select a sample MIDI file to play',
