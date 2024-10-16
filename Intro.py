@@ -10,7 +10,7 @@ st.markdown('Please have a look at the descriptions below, and select a project 
 st.header('Projects', divider='red')
 
 mv = Image.open("assets/movie.jpg")
-wp = Image.open("assets/weather.png")
+# wp = Image.open("assets/weather.png")
 sm = Image.open("assets/stock-market.png")
 mu = Image.open("assets/music.jpg")
 
@@ -51,7 +51,6 @@ with st.container():
     text_column, image_column = st.columns((3,1))
     with text_column:
         st.subheader("Generative Music", divider="green")
-        st.warning("*Work Progress*")
         st.markdown("""
             - Created a LSTM model to generate music
             - Trained on MIDI files from Final Fantasy series

@@ -119,18 +119,13 @@ network_input = prepare_sequences(notes, pitchnames, n_vocab)
 # Load model
 model = model_load()
 
-st.warning("*Work Progress*")
+st.markdown("This a model that I trained on a collection of MIDI files")
 
 midi_file = None
 generated_midi = None
 sample_midi = None
 
-n_notes = st.slider("How many notes do you want?", 1, 500, 250)
-start_pos = st.slider("Where do you want to start (negative = random)?", -1, len(network_input) - 1, -1)
-
-if st.button('Generate'):
-    with st.spinner(f"Generating a new MIDI file"):
-        generated_midi = generate(model, network_input, pitchnames, n_vocab, n_notes, start_pos)
+st.markdown("You can select one of the samples below")
 
 sample_midi = st.selectbox(
     'Select a sample MIDI file to play',
@@ -138,6 +133,15 @@ sample_midi = st.selectbox(
     index=None,
     placeholder="Please select a sample...",
 )
+
+st.markdown("Or generate a new sample by clicking the generate button")
+
+n_notes = st.slider("How many notes do you want?", 1, 500, 250)
+start_pos = st.slider("Where do you want to start? Negative will start at a random position.", -1, len(network_input) - 1, -1)
+
+if st.button('Generate'):
+    with st.spinner(f"Generating a new MIDI file"):
+        generated_midi = generate(model, network_input, pitchnames, n_vocab, n_notes, start_pos)
 
 if generated_midi:
     midi_file = generated_midi
