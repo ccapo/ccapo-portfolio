@@ -31,7 +31,7 @@ def get_recommendations(title, cosine_sim = cosine_sim):
     return movies
 
 # Get movie recommendations
-st.markdown("Enter the title of a movie to see a list of 10 recommendations")
+st.markdown("Enter the title of a movie to see a list of 10 recommendations (e.g. The Dark Knight Rises, The Avengers, etc)")
 title = st.text_input("Movie Title")
 if title != "":
     movies = get_recommendations(title)
