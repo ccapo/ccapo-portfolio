@@ -120,7 +120,7 @@ st.warning("*Work Progress*")
 
 # generate(model, network_input, pitchnames, n_vocab, 250, 16146)
 
-midi_file = st.selectbox('Select a sample to play', ('asset/sample_01.mid', 'asset/sample_02.mid', 'asset/sample_03.mid'))
+midi_file = st.selectbox('Select a sample to play', ('assets/sample_01.mid', 'assets/sample_02.mid', 'assets/sample_03.mid'))
 
 with st.spinner(f"Transcribing to FluidSynth"):
     midi_data = pretty_midi.PrettyMIDI(midi_file)
