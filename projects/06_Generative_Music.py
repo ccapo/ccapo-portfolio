@@ -6,6 +6,7 @@ from keras.saving import load_model
 import numpy as np
 import pretty_midi
 from scipy.io import wavfile
+import io
 
 @st.cache_resource
 def load_notes():
