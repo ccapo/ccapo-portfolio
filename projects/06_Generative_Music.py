@@ -119,7 +119,11 @@ network_input = prepare_sequences(notes, pitchnames, n_vocab)
 # Load model
 model = model_load()
 
-st.markdown("This a model that I trained on a collection of MIDI files")
+st.markdown("#### What are Recurrent Neural Networks (RNN)?")
+st.markdown("A recurrent neural network is a class of artificial neural networks that make use of sequential information. They are called recurrent because they perform the same function for every single element of a sequence, with the result being dependent on previous computations. Whereas outputs are independent of previous computations in traditional neural networks.")
+st.markdown("In this project we will use a Long Short-Term Memory (LSTM) network. They are a type of Recurrent Neural Network that can efficiently learn via gradient descent. Using a gating mechanism, LSTMs are able to recognise and encode long-term patterns. LSTMs are extremely useful to solve problems where the network has to remember information for a long period of time as is the case in music and text generation.")
+
+st.divider()
 
 midi_file = None
 generated_midi = None
@@ -142,6 +146,8 @@ start_pos = st.slider("Where do you want to start? Negative will start at a rand
 if st.button('Generate'):
     with st.spinner(f"Generating a new MIDI file"):
         generated_midi = generate(model, network_input, pitchnames, n_vocab, n_notes, start_pos)
+
+st.divider()
 
 if generated_midi:
     midi_file = generated_midi
