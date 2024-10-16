@@ -39,7 +39,8 @@ st.markdown('''There are 3 types of recommendation systems:
 3. Collaboration-based Filtering: These systems make recommendations by grouping the users with similar interests. For this system, metadata of the item is not required.
 ''')
 st.markdown("In this project, we are building a **Content-based** recommendation engine for movies titles.")
-st.markdown("To build this recommendation system, we will be using almost 5k movies and credits from the TMDB dataset available at Kaggle")
+tmdb_data_url = "https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata"
+st.markdown("To build this recommendation system, we will be using almost 5k movies and credits from the TMDB dataset available at [Kaggle](%s)" % tmdb_data_url)
 
 st.divider()
 
