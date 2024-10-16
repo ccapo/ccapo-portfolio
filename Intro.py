@@ -2,7 +2,7 @@ import streamlit as st
 from PIL import Image
 
 # Page title
-st.title("Chris Capobianco's Profile")
+st.title("Chris Capobianco's ML Portfolio")
 
 st.markdown('Hello, welcome to my ML portfolio.')
 st.markdown('Please have a look at the descriptions below, and select a project from the sidebar.')
