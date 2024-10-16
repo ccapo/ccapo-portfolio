@@ -14,7 +14,7 @@ def load_model():
     model_file.close()
     return rfc, oe, sc, images
 
-@st.cache_resource
+@st.cache_data
 def load_icons():
     dz = Image.open("assets/drizzle.png")
     rn = Image.open("assets/rain.png")

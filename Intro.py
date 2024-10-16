@@ -22,21 +22,19 @@ with st.container():
             - Created a content based recommendation system using cosine similarity
             - Trained on almost 5k movies and credits from the TMDB dataset available at Kaggle
         """)
-
     with image_column:
         st.image(mv)
 
-with st.container():
-    text_column, image_column = st.columns((3,1))
-    with text_column:
-        st.subheader("Weather Classification", divider="green")
-        st.markdown("""
-            - Created a Random Forest classification model to predict the weather
-            - Trained on three years of data for the city of Seattle, Washington
-        """)
-
-    with image_column:
-        st.image(wp)
+# with st.container():
+#     text_column, image_column = st.columns((3,1))
+#     with text_column:
+#         st.subheader("Weather Classification", divider="green")
+#         st.markdown("""
+#             - Created a Random Forest classification model to predict the weather
+#             - Trained on three years of data for the city of Seattle, Washington
+#         """)
+#     with image_column:
+#         st.image(wp)
 
 with st.container():
     text_column, image_column = st.columns((3,1))
@@ -46,7 +44,6 @@ with st.container():
             - Created a two layer GRU model to forecast of stock prices
             - Trained on 2006-2018 closing prices of four well known stocks
         """)
-
     with image_column:
         st.image(sm)
 
@@ -59,6 +56,5 @@ with st.container():
             - Created a LSTM model to generate music
             - Trained on MIDI files from Final Fantasy series
         """)
-
     with image_column:
         st.image(mu)

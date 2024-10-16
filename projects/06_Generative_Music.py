@@ -23,7 +23,7 @@ def load_model():
     model = load_model(model_filepath)
     return model
 
-@st.cache_resource
+@st.cache_data
 def prepare_sequences(notes, pitchnames, n_vocab, sequence_length=100):
     note_to_int = dict((note, number) for number, note in enumerate(pitchnames))
 
@@ -64,7 +64,7 @@ def generate_notes(model, network_input, pitchnames, n_vocab, nlength, istart=-1
 
     return prediction_output
 
-def create_midi(prediction_output):
+def create_midi(prediction_output, output_filepath):
     offset = 0
     output_notes = []
 
@@ -96,6 +96,7 @@ def create_midi(prediction_output):
     midi_stream.write('midi', fp='output.mid')
 
 def generate(model, network_input, pitchnames, n_vocab, nlength=500, istart=-1):
+    output_filepath = 'output.mid'
     if nlength <= 0:
         print(f"Negative song length is not permitted, defaulting to 500 notes")
         nlength = 500
@@ -104,34 +105,54 @@ def generate(model, network_input, pitchnames, n_vocab, nlength=500, istart=-1):
         nlength = 500
 
     prediction_output = generate_notes(model, network_input, pitchnames, n_vocab, nlength, istart)
-    create_midi(prediction_output)
+    create_midi(prediction_output, output_filepath)
+    return output_filepath
 
 st.header('Generative Music', divider='green')
 
 # Load notes
-# notes, pitchnames, n_vocab = load_notes()
+notes, pitchnames, n_vocab = load_notes()
 
 # Prepare note sequences
-# network_input = prepare_sequences(notes, pitchnames, n_vocab)
+network_input = prepare_sequences(notes, pitchnames, n_vocab)
 
 # Load model
-# model = model_load()
+model = model_load()
 
 st.warning("*Work Progress*")
 
-# generate(model, network_input, pitchnames, n_vocab, 250, 16146)
+midi_file = None
+generated_midi = None
+sample_midi = None
 
-midi_file = st.selectbox('Select a sample to play', ('assets/sample_01.mid', 'assets/sample_02.mid', 'assets/sample_03.mid'))
+if st.button('Generate'):
+    with st.spinner(f"Generating a new MIDI file"):
+        generated_midi = generate(model, network_input, pitchnames, n_vocab, 250, 16146)
 
-with st.spinner(f"Transcribing to FluidSynth"):
-    midi_data = pretty_midi.PrettyMIDI(midi_file)
-    audio_data = midi_data.fluidsynth()
-    audio_data = np.int16(
-        audio_data / np.max(np.abs(audio_data)) * 32767 * 0.9
-    )  # -- Normalize for 16 bit audio https://github.com/jkanner/streamlit-audio/blob/main/helper.py
+sample_midi = st.selectbox(
+    'Select a sample MIDI file to play',
+    ('assets/sample_01.mid', 'assets/sample_02.mid', 'assets/sample_03.mid'),
+    index=None,
+    placeholder="Please select a sample...",
+)
 
-    virtualfile = io.BytesIO()
-    wavfile.write(virtualfile, 44100, audio_data)
+if generated_midi:
+    midi_file = generated_midi
+elif sample_midi:
+    midi_file = sample_midi
 
-st.audio(virtualfile)
-st.markdown("Download the audio by right-clicking on the media player")
+if midi_file:
+    with st.spinner(f"Transcribing to FluidSynth"):
+        midi_data = pretty_midi.PrettyMIDI(midi_file)
+        audio_data = midi_data.fluidsynth()
+        audio_data = np.int16(
+            audio_data / np.max(np.abs(audio_data)) * 32767 * 0.9
+        )  # -- Normalize for 16 bit audio https://github.com/jkanner/streamlit-audio/blob/main/helper.py
+
+        virtualfile = io.BytesIO()
+        wavfile.write(virtualfile, 44100, audio_data)
+
+    st.audio(virtualfile)
+    st.markdown("Download the audio by right-clicking on the media player")
+else:
+    st.markdown("Either generate a new MIDI file, or select one of the samples")
