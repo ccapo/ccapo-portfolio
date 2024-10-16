@@ -9,6 +9,7 @@ movie_recommendation = st.Page('projects/02_Movie_Recommendation.py', title='Mov
 # weather_classification = st.Page('projects/04_Weather_Classification.py', title='Weather Classification')
 stock_market = st.Page('projects/05_Stock_Market.py', title='Stock Market Forecast')
 generative_music = st.Page('projects/06_Generative_Music.py', title='Generative Music')
+llm_fine_tune = st.Page('projects/07_LLM_Fine_Tuned.py', title='Fine Tuned LLM')
 
 pg = st.navigation(
     {
@@ -19,7 +20,8 @@ pg = st.navigation(
             movie_recommendation,
             # weather_classification,
             stock_market,
-            generative_music
+            generative_music,
+            llm_fine_tune
         ]
     }
 )

@@ -13,6 +13,7 @@ mv = Image.open("assets/movie.jpg")
 # wp = Image.open("assets/weather.png")
 sm = Image.open("assets/stock-market.png")
 mu = Image.open("assets/music.jpg")
+llm = Image.open("assets/llm.png")
 
 with st.container():
     text_column, image_column = st.columns((3,1))
@@ -57,3 +58,15 @@ with st.container():
         """)
     with image_column:
         st.image(mu)
+
+with st.container():
+    text_column, image_column = st.columns((3,1))
+    with text_column:
+        st.subheader("Fine Tuned LLM", divider="green")
+        st.warning("**Work In Progress**")
+        st.markdown("""
+            - Fine tuned a LLM to enhance the ethical responses of the base model
+            - The base model is Meta's Llama 3.1 (8B)
+        """)
+    with image_column:
+        st.image(llm)
