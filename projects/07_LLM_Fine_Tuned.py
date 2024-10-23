@@ -6,7 +6,7 @@ st.header('Fine Tuned LLM', divider='green')
 
 st.markdown("#### What is a LLM?")
 st.markdown("LLM stands for Large Language Model, which are mathematical models trained to predict the next set of words based on the prompt provided to it.")
-st.markdown("In this case we are using the LLama v3.1 with 8 Billion parameters as our base model.")
+st.markdown("In this case we are using the LLama 3.1 (8B) as our base model.")
 st.markdown("#### What is a fine tuning?")
 st.markdown("Fine tuning is the processes of tweaking the response of the LLM to particular subset of prompts. Most LLMs are trained on a large corpus of generic data, fine tuning just guides the LLM to a specific use case.")
 st.markdown("In this case I have fine tuned the base model on [Microsoft's Orca Math Word Problems](https://huggingface.co/datasets/microsoft/orca-math-word-problems-200k), so the chatbot below is more of math assistant. Though it occasionally gets the wrong answer, it will to try again. I only fine tuned on 1000 math word problems, but I could try to train on the entire dataset in the future.")
