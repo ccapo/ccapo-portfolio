@@ -12,7 +12,7 @@ st.markdown("Fine tuning is the processes of tweaking the response of the LLM to
 st.markdown("In this case I have fine tuned the base model on [Microsoft's Orca Math Word Problems](https://huggingface.co/datasets/microsoft/orca-math-word-problems-200k), so the chatbot below is more of math assistant. Though it occasionally gets the wrong answer, it is willing to try again. I only fine tuned on 1000 math word problems, but I could try to train on the entire dataset in the future.")
 st.markdown("#### What is quantization?")
 st.markdown("Most LLM are quite large, often too large to fit into a computer's memory. So ML developers employ Graphic Processing Units (GPUs) with large amounts of memory to train or make use of such LLMs.")
-st.markdown("However not everyone has access to such resources, so quantization is process to decrease the size of a model so that it can fit into memory (GPU or CPU). The process of quantization decreases the precision used to store the models parameters, at the cost of the model's accuracy.")
+st.markdown("However not everyone has access to such resources, so quantization is the process to decrease the size of a model so that it can fit into memory (GPU or CPU). The process of quantization decreases the precision used to store the models parameters, at the cost of the model's accuracy.")
 st.markdown("In this case after I fine tuned the LLama 3.1 (8B) base model, it was quantized to 4 bits which offers reasonable model accuracy at 25% the base model size.")
 
 st.warning("**Work In Progress**")
