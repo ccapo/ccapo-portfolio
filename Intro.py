@@ -66,7 +66,7 @@ with st.container():
         st.warning("**Work In Progress**")
         st.markdown("""
             - Fine tuned a LLM to act like math assistant
-            - The base model is Meta's Llama 3.1 (8B)
+            - The base model is Meta's Llama 3.1 (8B) Instruct
         """)
     with image_column:
         st.image(llm)
