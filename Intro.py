@@ -65,7 +65,7 @@ with st.container():
         st.subheader("Fine Tuned LLM", divider="green")
         st.warning("**Work In Progress**")
         st.markdown("""
-            - Fine tuned a LLM to enhance the ethical responses of the base model
+            - Fine tuned a LLM to act like math assistant
             - The base model is Meta's Llama 3.1 (8B)
         """)
     with image_column:
