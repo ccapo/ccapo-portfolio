@@ -14,6 +14,8 @@ st.markdown("#### What is quantization?")
 st.markdown("Most LLM are quite large, often too large to fit into a computer's memory. So ML developers employ Graphic Processing Units (GPUs) with large amounts of memory to train or make use of such LLMs.")
 st.markdown("However not everyone has access to such resources, so quantization is the process of decreasing the size of a model so that it can fit into memory (GPU or CPU). The process of quantization decreases the precision used to store the models parameters, at the cost of the model's accuracy.")
 st.markdown("In this case after I fine tuned the LLama 3.1 (8B) base model, it was quantized to 4 bits which offers reasonable model accuracy at 25% the base model size.")
+st.markdown("*This is based off the tutorial by Abid Ali Awan [Fine-Tuning Llama 3 and Using It Locally: A Step-by-Step Guide](https://www.datacamp.com/tutorial/llama3-fine-tuning-locally)*")
+st.divider()
 
 st.warning("**Work In Progress**")
 
