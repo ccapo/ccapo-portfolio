@@ -11,4 +11,3 @@ pyfluidsynth
 scipy
 soundfile
 tensorflow
-llama-cpp-python
