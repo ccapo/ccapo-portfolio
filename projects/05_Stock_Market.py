@@ -1,4 +1,5 @@
 import streamlit as st
+from PIL import Image
 
 # Load Image
 gru = Image.open("assets/gru.png")
