@@ -5,7 +5,7 @@ from PIL import Image
 st.title("Chris Capobianco's ML Portfolio")
 
 st.markdown('Hello, welcome to my ML portfolio.')
-st.markdown('I have moved my ML portfolio to [Huggingface](https://huggingface.co/spaces/ccapo/portfolio)')
+st.warning('I have moved my ML portfolio to [Huggingface](https://huggingface.co/spaces/ccapo/portfolio)')
 
 st.header('Projects', divider='red')
 
