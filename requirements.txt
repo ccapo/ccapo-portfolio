@@ -1,14 +1,1 @@
 streamlit
-numpy
-pandas
-scikit-learn
-keras
-plotly
-music21
-mido
-pretty-midi
-pyfluidsynth
-scipy
-soundfile
-tensorflow
-# llama-cpp-python

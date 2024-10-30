@@ -5,7 +5,7 @@ from PIL import Image
 st.title("Chris Capobianco's ML Portfolio")
 
 st.markdown('Hello, welcome to my ML portfolio.')
-st.markdown('Please have a look at the descriptions below, and select a project from the sidebar.')
+st.markdown('I have moved my ML portfolio to [Huggingface](https://huggingface.co/spaces/ccapo/portfolio)')
 
 st.header('Projects', divider='red')
 
@@ -63,7 +63,6 @@ with st.container():
     text_column, image_column = st.columns((3,1))
     with text_column:
         st.subheader("Fine Tuned LLM", divider="green")
-        st.warning("**Work In Progress**")
         st.markdown("""
             - Fine tuned a LLM to act like math assistant
             - The base model is Meta's Llama 3.1 (8B) Instruct

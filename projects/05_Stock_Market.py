@@ -1,30 +1,13 @@
 import streamlit as st
-import pickle
-import plotly.graph_objects as go
-from PIL import Image
-
-@st.cache_resource
-def load_model():
-    model_file = open('./models/stock_market_model.pkl', 'rb')
-    amazon_predictions = pickle.load(model_file)
-    amazon_scores = pickle.load(model_file)
-    google_predictions = pickle.load(model_file)
-    google_scores = pickle.load(model_file)
-    ibm_predictions = pickle.load(model_file)
-    ibm_scores = pickle.load(model_file)
-    microsoft_predictions = pickle.load(model_file)
-    microsoft_scores = pickle.load(model_file)
-    model_file.close()
-    return amazon_predictions, amazon_scores, google_predictions, google_scores, ibm_predictions, ibm_scores, microsoft_predictions, microsoft_scores
 
 # Load Image
 gru = Image.open("assets/gru.png")
 nn = Image.open("assets/nn.png")
 
 # Load the Model
-amazon_predictions, amazon_scores, google_predictions, google_scores, ibm_predictions, ibm_scores, microsoft_predictions, microsoft_scores = load_model()
-
 st.header('Stock Market Forecast', divider='green')
+
+st.warning("This model is now hosted on [Huggingface](https://huggingface.co/spaces/ccapo/portfolio)")
 
 st.markdown("#### Time Series Forecasting")
 st.markdown("Time series forecasting uses information regarding historical values and associated patterns to predict future activity. Most often, this relates to trend analysis, cyclical fluctuation analysis, and issues of seasonality. As with all forecasting methods, success is not guaranteed.")
@@ -41,119 +24,3 @@ st.image(nn, caption = "GRU-based Model")
 st.divider()
 
 st.markdown("Below each graph is the mean square error (MSE) for the train and test sets, where the test set consists of the last 20 days.")
-
-fig1 = go.Figure()
-fig1.add_trace(go.Scatter(go.Scatter(x=amazon_predictions['Date'], y=amazon_predictions['Train Prediction'],
-                    mode='lines',
-                    name='Train Prediction')))
-fig1.add_trace(go.Scatter(x=amazon_predictions['Date'], y=amazon_predictions['Test Prediction'],
-                    mode='lines',
-                    name='Test Prediction'))
-fig1.add_trace(go.Scatter(go.Scatter(x=amazon_predictions['Date'], y=amazon_predictions['Actual Value'],
-                    mode='lines',
-                    name='Actual Value')))
-fig1.update_layout(
-    title="Amazon Stock Prediction",
-    xaxis_title="Date",
-    yaxis_title="Close (USD)",
-    showlegend=True,
-    template = 'plotly_dark'
-)
-
-annotations = []
-annotations.append(dict(xref='paper', yref='paper', x=0.0, y=1.05,
-                              xanchor='left', yanchor='bottom',
-                              text='',
-                              showarrow=False))
-fig1.update_layout(annotations=annotations)
-st.plotly_chart(fig1, use_container_width=True)
-
-# MSE on train and test sets
-st.markdown(f"Train MSE: {amazon_scores[0]:.3f}, Test MSE: {amazon_scores[1]:.3f}")
-
-fig2 = go.Figure()
-fig2.add_trace(go.Scatter(go.Scatter(x=google_predictions['Date'], y=google_predictions['Train Prediction'],
-                    mode='lines',
-                    name='Train Prediction')))
-fig2.add_trace(go.Scatter(x=google_predictions['Date'], y=google_predictions['Test Prediction'],
-                    mode='lines',
-                    name='Test Prediction'))
-fig2.add_trace(go.Scatter(go.Scatter(x=google_predictions['Date'], y=google_predictions['Actual Value'],
-                    mode='lines',
-                    name='Actual Value')))
-fig2.update_layout(
-    title="Google Stock Prediction",
-    xaxis_title="Date",
-    yaxis_title="Close (USD)",
-    showlegend=True,
-    template = 'plotly_dark'
-)
-
-annotations = []
-annotations.append(dict(xref='paper', yref='paper', x=0.0, y=1.05,
-                              xanchor='left', yanchor='bottom',
-                              text='',
-                              showarrow=False))
-fig2.update_layout(annotations=annotations)
-st.plotly_chart(fig2, use_container_width=True)
-
-# MSE on train and test sets
-st.markdown(f"Train MSE: {google_scores[0]:.3f}, Test MSE: {google_scores[1]:.3f}")
-
-fig3 = go.Figure()
-fig3.add_trace(go.Scatter(go.Scatter(x=ibm_predictions['Date'], y=ibm_predictions['Train Prediction'],
-                    mode='lines',
-                    name='Train Prediction')))
-fig3.add_trace(go.Scatter(x=ibm_predictions['Date'], y=ibm_predictions['Test Prediction'],
-                    mode='lines',
-                    name='Test Prediction'))
-fig3.add_trace(go.Scatter(go.Scatter(x=ibm_predictions['Date'], y=ibm_predictions['Actual Value'],
-                    mode='lines',
-                    name='Actual Value')))
-fig3.update_layout(
-    title="IBM Stock Prediction",
-    xaxis_title="Date",
-    yaxis_title="Close (USD)",
-    showlegend=True,
-    template = 'plotly_dark'
-)
-
-annotations = []
-annotations.append(dict(xref='paper', yref='paper', x=0.0, y=1.05,
-                              xanchor='left', yanchor='bottom',
-                              text='',
-                              showarrow=False))
-fig3.update_layout(annotations=annotations)
-st.plotly_chart(fig3, use_container_width=True)
-
-# MSE on train and test sets
-st.markdown(f"Train MSE: {ibm_scores[0]:.3f}, Test MSE: {ibm_scores[1]:.3f}")
-
-fig4 = go.Figure()
-fig4.add_trace(go.Scatter(go.Scatter(x=microsoft_predictions['Date'], y=microsoft_predictions['Train Prediction'],
-                    mode='lines',
-                    name='Train Prediction')))
-fig4.add_trace(go.Scatter(x=microsoft_predictions['Date'], y=microsoft_predictions['Test Prediction'],
-                    mode='lines',
-                    name='Test Prediction'))
-fig4.add_trace(go.Scatter(go.Scatter(x=microsoft_predictions['Date'], y=microsoft_predictions['Actual Value'],
-                    mode='lines',
-                    name='Actual Value')))
-fig4.update_layout(
-    title="Microsoft Stock Prediction",
-    xaxis_title="Date",
-    yaxis_title="Close (USD)",
-    showlegend=True,
-    template = 'plotly_dark'
-)
-
-annotations = []
-annotations.append(dict(xref='paper', yref='paper', x=0.0, y=1.05,
-                              xanchor='left', yanchor='bottom',
-                              text='',
-                              showarrow=False))
-fig4.update_layout(annotations=annotations)
-st.plotly_chart(fig4, use_container_width=True)
-
-# MSE on train and test sets
-st.markdown(f"Train MSE: {microsoft_scores[0]:.3f}, Test MSE: {microsoft_scores[1]:.3f}")
